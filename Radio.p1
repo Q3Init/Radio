@@ -131,6 +131,9 @@ Version 3.2   GCC8 Compiled Intermediate Code
 "480
 [u S43 `S44 1 ]
 [n S43 . . ]
+"31 D:\Program Files (x86)\CCompiler\Compiler\data\include\SYSCFG.h
+[v ___nop `(v ~T0 @X0 0 ef ]
+[p i ___nop ]
 [p mainexit ]
 [; ;fmd.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;fmd.h: 28: extern double __fpnormalize(double);
@@ -984,30 +987,607 @@ Version 3.2   GCC8 Compiled Intermediate Code
 [; ;SYSCFG.h: 175: extern unsigned char __resetbits;
 [; ;SYSCFG.h: 176: extern __bit __powerdown;
 [; ;SYSCFG.h: 177: extern __bit __timeout;
-[v $root$_ISR `(v ~T0 @X0 0 e ]
-[v F544 `(v ~T0 @X0 1 tf ]
-"20 Radio.C
-[v _ISR `IF544 ~T0 @X0 1 e ]
-"21
+"23 Radio.C
+[v _rxfreq `i ~T0 @X0 -> 0 `x e ]
+[i _rxfreq
+:U ..
+"24
+-> 21182 `i
+-> -> 63568 `ui `i
+-> 0 `i
+..
+]
+[; ;Radio.C: 23: int rxfreq[]={
+[; ;Radio.C: 24: 0x52BE,0xF850,0x0000};
+"25
+[v _txfreq `i ~T0 @X0 -> 0 `x e ]
+[i _txfreq
+:U ..
+"26
+-> 21189 `i
+-> -> 37471 `ui `i
+-> 0 `i
+..
+]
+[; ;Radio.C: 25: int txfreq[]={
+[; ;Radio.C: 26: 0x52C5,0x925F,0x0000};
+"27
+[v _rxreg `i ~T0 @X0 -> 0 `x e ]
+[i _rxreg
+:U ..
+"28
+-> 768 `i
+"29
+-> -> 36356 `ui `i
+"30
+-> -> 61760 `ui `i
+"31
+-> -> 60672 `ui `i
+"32
+-> 6112 `i
+"33
+-> -> 57568 `ui `i
+"34
+-> -> 34115 `ui `i
+"35
+-> 1792 `i
+"36
+-> -> 41062 `ui `i
+"37
+-> -> 65535 `ui `i
+"38
+-> -> 65504 `ui `i
+"39
+-> 1952 `i
+"40
+-> -> 40508 `ui `i
+"41
+-> 7936 `i
+"42
+-> -> 53713 `ui `i
+"43
+-> 8207 `i
+"44
+-> 511 `i
+"45
+-> -> 57344 `ui `i
+"47
+-> 832 `i
+..
+]
+[; ;Radio.C: 27: int rxreg[]={
+[; ;Radio.C: 28: 0x0300,
+[; ;Radio.C: 29: 0x8e04,
+[; ;Radio.C: 30: 0xF140,
+[; ;Radio.C: 31: 0xED00,
+[; ;Radio.C: 32: 0x17E0,
+[; ;Radio.C: 33: 0xe0e0,
+[; ;Radio.C: 34: 0x8543,
+[; ;Radio.C: 35: 0x0700,
+[; ;Radio.C: 36: 0xA066,
+[; ;Radio.C: 37: 0xFFFF,
+[; ;Radio.C: 38: 0xFFE0,
+[; ;Radio.C: 39: 0x07a0,
+[; ;Radio.C: 40: 0x9E3C,
+[; ;Radio.C: 41: 0x1F00,
+[; ;Radio.C: 42: 0xD1D1,
+[; ;Radio.C: 43: 0x200F,
+[; ;Radio.C: 44: 0x01FF,
+[; ;Radio.C: 45: 0xE000,
+[; ;Radio.C: 46: 0x0340
+[; ;Radio.C: 47: };
+"48
+[v _txreg `i ~T0 @X0 -> 0 `x e ]
+[i _txreg
+:U ..
+"49
+-> 31744 `i
+"50
+-> 3076 `i
+"51
+-> -> 61760 `ui `i
+"52
+-> -> 60672 `ui `i
+"53
+-> 16352 `i
+"54
+-> -> 57568 `ui `i
+"55
+-> -> 34115 `ui `i
+"56
+-> 1792 `i
+"57
+-> -> 41062 `ui `i
+"58
+-> -> 65535 `ui `i
+"59
+-> -> 65504 `ui `i
+"60
+-> 1567 `i
+"61
+-> -> 40508 `ui `i
+"62
+-> 7936 `i
+"63
+-> -> 53697 `ui `i
+"64
+-> 8207 `i
+"65
+-> 511 `i
+"66
+-> -> 57344 `ui `i
+"68
+-> 3072 `i
+..
+]
+[; ;Radio.C: 48: int txreg[]={
+[; ;Radio.C: 49: 0x7C00,
+[; ;Radio.C: 50: 0x0c04,
+[; ;Radio.C: 51: 0xF140,
+[; ;Radio.C: 52: 0xED00,
+[; ;Radio.C: 53: 0x3fE0,
+[; ;Radio.C: 54: 0xe0e0,
+[; ;Radio.C: 55: 0x8543,
+[; ;Radio.C: 56: 0x0700,
+[; ;Radio.C: 57: 0xA066,
+[; ;Radio.C: 58: 0xFFFF,
+[; ;Radio.C: 59: 0xffe0,
+[; ;Radio.C: 60: 0x061f,
+[; ;Radio.C: 61: 0x9e3c,
+[; ;Radio.C: 62: 0x1f00,
+[; ;Radio.C: 63: 0xd1C1,
+[; ;Radio.C: 64: 0x200f,
+[; ;Radio.C: 65: 0x01FF,
+[; ;Radio.C: 66: 0xE000,
+[; ;Radio.C: 67: 0x0c00
+[; ;Radio.C: 68: };
+"76
+[v _POWER_INITIAL `(v ~T0 @X0 1 ef ]
+"77
 {
-[; ;Radio.C: 20: void interrupt ISR(void)
-[; ;Radio.C: 21: {
-[e :U _ISR ]
+[; ;Radio.C: 76: void POWER_INITIAL (void)
+[; ;Radio.C: 77: {
+[e :U _POWER_INITIAL ]
 [f ]
-[; ;Radio.C: 22: }
-"22
+[; ;Radio.C: 78: OSCCON = 0B01110000;
+"78
+[e = _OSCCON -> -> 112 `i `uc ]
+[; ;Radio.C: 80: INTCON = 0;
+"80
+[e = _INTCON -> -> 0 `i `uc ]
+[; ;Radio.C: 81: OPTION = 0B00001000;
+"81
+[e = _OPTION -> -> 8 `i `uc ]
+[; ;Radio.C: 83: PORTA = 0B00000000;
+"83
+[e = _PORTA -> -> 0 `i `uc ]
+[; ;Radio.C: 84: TRISA = 0B00000100;
+"84
+[e = _TRISA -> -> 4 `i `uc ]
+[; ;Radio.C: 86: WPUA = 0B00000100;
+"86
+[e = _WPUA -> -> 4 `i `uc ]
+[; ;Radio.C: 88: MSCKCON = 0B00000000;
+"88
+[e = _MSCKCON -> -> 0 `i `uc ]
+[; ;Radio.C: 89: }
+"89
 [e :UE 45 ]
 }
-[v $root$_main `(v ~T0 @X0 0 e ]
-"28
-[v _main `(i ~T0 @X0 1 ef ]
-"29
+"96
+[v _DelayUs `(v ~T0 @X0 1 ef1`uc ]
+"97
 {
-[; ;Radio.C: 28: main()
-[; ;Radio.C: 29: {
+[; ;Radio.C: 96: void DelayUs(unsigned char Time)
+[; ;Radio.C: 97: {
+[e :U _DelayUs ]
+"96
+[v _Time `uc ~T0 @X0 1 r1 ]
+"97
+[f ]
+"98
+[v _a `uc ~T0 @X0 1 a ]
+[; ;Radio.C: 98: unsigned char a;
+[; ;Radio.C: 99: for(a=0;a<Time;a++)
+"99
+{
+[e = _a -> -> 0 `i `uc ]
+[e $U 50  ]
+"100
+[e :U 47 ]
+[; ;Radio.C: 100: {
+{
+[; ;Radio.C: 101: __nop();
+"101
+[e ( ___nop ..  ]
+"102
+}
+"99
+[e ++ _a -> -> 1 `i `uc ]
+[e :U 50 ]
+[e $ < -> _a `i -> _Time `i 47  ]
+[e :U 48 ]
+"102
+}
+[; ;Radio.C: 102: }
+[; ;Radio.C: 103: }
+"103
+[e :UE 46 ]
+}
+"110
+[v _DelayMs `(v ~T0 @X0 1 ef1`uc ]
+"111
+{
+[; ;Radio.C: 110: void DelayMs(unsigned char Time)
+[; ;Radio.C: 111: {
+[e :U _DelayMs ]
+"110
+[v _Time `uc ~T0 @X0 1 r1 ]
+"111
+[f ]
+"112
+[v _a `uc ~T0 @X0 1 a ]
+[v _b `uc ~T0 @X0 1 a ]
+[; ;Radio.C: 112: unsigned char a,b;
+[; ;Radio.C: 113: for(a=0;a<Time;a++)
+"113
+{
+[e = _a -> -> 0 `i `uc ]
+[e $U 55  ]
+"114
+[e :U 52 ]
+[; ;Radio.C: 114: {
+{
+[; ;Radio.C: 115: for(b=0;b<5;b++)
+"115
+{
+[e = _b -> -> 0 `i `uc ]
+[e $ < -> _b `i -> 5 `i 56  ]
+[e $U 57  ]
+"116
+[e :U 56 ]
+[; ;Radio.C: 116: {
+{
+[; ;Radio.C: 117: DelayUs(98);
+"117
+[e ( _DelayUs (1 -> -> 98 `i `uc ]
+"118
+}
+"115
+[e ++ _b -> -> 1 `i `uc ]
+[e $ < -> _b `i -> 5 `i 56  ]
+[e :U 57 ]
+"118
+}
+"119
+}
+"113
+[e ++ _a -> -> 1 `i `uc ]
+[e :U 55 ]
+[e $ < -> _a `i -> _Time `i 52  ]
+[e :U 53 ]
+"119
+}
+[; ;Radio.C: 118: }
+[; ;Radio.C: 119: }
+[; ;Radio.C: 120: }
+"120
+[e :UE 51 ]
+}
+"127
+[v _IIC_Start `(v ~T0 @X0 1 ef ]
+"128
+{
+[; ;Radio.C: 127: void IIC_Start(void)
+[; ;Radio.C: 128: {
+[e :U _IIC_Start ]
+[f ]
+[; ;Radio.C: 129: TRISA2 =0;
+"129
+[e = _TRISA2 -> -> 0 `i `b ]
+[; ;Radio.C: 130: PA4=1;
+"130
+[e = _PA4 -> -> 1 `i `b ]
+[; ;Radio.C: 131: PA5=1;
+"131
+[e = _PA5 -> -> 1 `i `b ]
+[; ;Radio.C: 132: DelayUs(10);
+"132
+[e ( _DelayUs (1 -> -> 10 `i `uc ]
+[; ;Radio.C: 133: PA4=0;
+"133
+[e = _PA4 -> -> 0 `i `b ]
+[; ;Radio.C: 134: DelayUs(10);
+"134
+[e ( _DelayUs (1 -> -> 10 `i `uc ]
+[; ;Radio.C: 135: PA5=0;
+"135
+[e = _PA5 -> -> 0 `i `b ]
+[; ;Radio.C: 136: DelayUs(10);
+"136
+[e ( _DelayUs (1 -> -> 10 `i `uc ]
+[; ;Radio.C: 137: }
+"137
+[e :UE 59 ]
+}
+"144
+[v _IIC_Stop `(v ~T0 @X0 1 ef ]
+"145
+{
+[; ;Radio.C: 144: void IIC_Stop(void)
+[; ;Radio.C: 145: {
+[e :U _IIC_Stop ]
+[f ]
+[; ;Radio.C: 146: TRISA2 =0;
+"146
+[e = _TRISA2 -> -> 0 `i `b ]
+[; ;Radio.C: 147: PA5=0;
+"147
+[e = _PA5 -> -> 0 `i `b ]
+[; ;Radio.C: 148: PA4=0;
+"148
+[e = _PA4 -> -> 0 `i `b ]
+[; ;Radio.C: 149: DelayUs(10);
+"149
+[e ( _DelayUs (1 -> -> 10 `i `uc ]
+[; ;Radio.C: 150: PA5=1;
+"150
+[e = _PA5 -> -> 1 `i `b ]
+[; ;Radio.C: 151: DelayUs(10);
+"151
+[e ( _DelayUs (1 -> -> 10 `i `uc ]
+[; ;Radio.C: 152: PA4=1;
+"152
+[e = _PA4 -> -> 1 `i `b ]
+[; ;Radio.C: 153: DelayUs(10);
+"153
+[e ( _DelayUs (1 -> -> 10 `i `uc ]
+[; ;Radio.C: 154: }
+"154
+[e :UE 60 ]
+}
+"161
+[v _IIC_NAck `(v ~T0 @X0 1 ef ]
+"162
+{
+[; ;Radio.C: 161: void IIC_NAck(void)
+[; ;Radio.C: 162: {
+[e :U _IIC_NAck ]
+[f ]
+[; ;Radio.C: 163: PA5=0;
+"163
+[e = _PA5 -> -> 0 `i `b ]
+[; ;Radio.C: 164: TRISA2 =0;
+"164
+[e = _TRISA2 -> -> 0 `i `b ]
+[; ;Radio.C: 165: PA4=1;
+"165
+[e = _PA4 -> -> 1 `i `b ]
+[; ;Radio.C: 166: DelayUs(5);
+"166
+[e ( _DelayUs (1 -> -> 5 `i `uc ]
+[; ;Radio.C: 167: PA5=1;
+"167
+[e = _PA5 -> -> 1 `i `b ]
+[; ;Radio.C: 168: DelayUs(5);
+"168
+[e ( _DelayUs (1 -> -> 5 `i `uc ]
+[; ;Radio.C: 169: PA5=0;
+"169
+[e = _PA5 -> -> 0 `i `b ]
+[; ;Radio.C: 170: }
+"170
+[e :UE 61 ]
+}
+"177
+[v _IIC_Send_Byte `(v ~T0 @X0 1 ef1`uc ]
+"178
+{
+[; ;Radio.C: 177: void IIC_Send_Byte(unsigned char txd)
+[; ;Radio.C: 178: {
+[e :U _IIC_Send_Byte ]
+"177
+[v _txd `uc ~T0 @X0 1 r1 ]
+"178
+[f ]
+"179
+[v _t `uc ~T0 @X0 1 a ]
+[; ;Radio.C: 179: unsigned char t;
+[; ;Radio.C: 180: TRISA2 =0;
+"180
+[e = _TRISA2 -> -> 0 `i `b ]
+[; ;Radio.C: 181: PA5=0;
+"181
+[e = _PA5 -> -> 0 `i `b ]
+[; ;Radio.C: 182: for(t=0;t<8;t++)
+"182
+{
+[e = _t -> -> 0 `i `uc ]
+[e $ < -> _t `i -> 8 `i 63  ]
+[e $U 64  ]
+"183
+[e :U 63 ]
+[; ;Radio.C: 183: {
+{
+[; ;Radio.C: 184: if((txd&0x80)>>7)
+"184
+[e $ ! != >> & -> _txd `i -> 128 `i -> 7 `i -> 0 `i 66  ]
+[; ;Radio.C: 185: PA4=1;
+"185
+[e = _PA4 -> -> 1 `i `b ]
+[e $U 67  ]
+"186
+[e :U 66 ]
+[; ;Radio.C: 186: else
+[; ;Radio.C: 187: PA4=0;
+"187
+[e = _PA4 -> -> 0 `i `b ]
+[e :U 67 ]
+[; ;Radio.C: 188: txd<<=1;
+"188
+[e =<< _txd -> 1 `i ]
+[; ;Radio.C: 189: DelayUs(5);
+"189
+[e ( _DelayUs (1 -> -> 5 `i `uc ]
+[; ;Radio.C: 190: PA5=1;
+"190
+[e = _PA5 -> -> 1 `i `b ]
+[; ;Radio.C: 191: DelayUs(5);
+"191
+[e ( _DelayUs (1 -> -> 5 `i `uc ]
+[; ;Radio.C: 192: PA5=0;
+"192
+[e = _PA5 -> -> 0 `i `b ]
+[; ;Radio.C: 193: DelayUs(5);
+"193
+[e ( _DelayUs (1 -> -> 5 `i `uc ]
+"194
+}
+"182
+[e ++ _t -> -> 1 `i `uc ]
+[e $ < -> _t `i -> 8 `i 63  ]
+[e :U 64 ]
+"194
+}
+[; ;Radio.C: 194: }
+[; ;Radio.C: 195: }
+"195
+[e :UE 62 ]
+}
+"202
+[v _IIC_Read_Byte `(uc ~T0 @X0 1 ef ]
+"203
+{
+[; ;Radio.C: 202: unsigned char IIC_Read_Byte(void)
+[; ;Radio.C: 203: {
+[e :U _IIC_Read_Byte ]
+[f ]
+"204
+[v _i `uc ~T0 @X0 1 a ]
+[v _receive `uc ~T0 @X0 1 a ]
+[; ;Radio.C: 204: unsigned char i,receive=0;
+[e = _receive -> -> 0 `i `uc ]
+[; ;Radio.C: 205: TRISA2 =1;
+"205
+[e = _TRISA2 -> -> 1 `i `b ]
+[; ;Radio.C: 206: for(i=0;i<8;i++ )
+"206
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 8 `i 69  ]
+[e $U 70  ]
+"207
+[e :U 69 ]
+[; ;Radio.C: 207: {
+{
+[; ;Radio.C: 208: PA5=0;
+"208
+[e = _PA5 -> -> 0 `i `b ]
+[; ;Radio.C: 209: DelayUs(5);
+"209
+[e ( _DelayUs (1 -> -> 5 `i `uc ]
+[; ;Radio.C: 210: PA5=1;
+"210
+[e = _PA5 -> -> 1 `i `b ]
+[; ;Radio.C: 211: receive<<=1;
+"211
+[e =<< _receive -> 1 `i ]
+[; ;Radio.C: 212: if(PA4)receive++;
+"212
+[e $ ! _PA4 72  ]
+[e ++ _receive -> -> 1 `i `uc ]
+[e :U 72 ]
+[; ;Radio.C: 213: DelayUs(5);
+"213
+[e ( _DelayUs (1 -> -> 5 `i `uc ]
+"214
+}
+"206
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 69  ]
+[e :U 70 ]
+"214
+}
+[; ;Radio.C: 214: }
+[; ;Radio.C: 215: IIC_NAck();
+"215
+[e ( _IIC_NAck ..  ]
+[; ;Radio.C: 217: return receive;
+"217
+[e ) _receive ]
+[e $UE 68  ]
+[; ;Radio.C: 218: }
+"218
+[e :UE 68 ]
+}
+"220
+[v _writing `(v ~T0 @X0 1 ef4`uc`uc`uc`uc ]
+"221
+{
+[; ;Radio.C: 220: void writing(char ICaddforwrite,char hadd,char hdata,char ldata)
+[; ;Radio.C: 221: {
+[e :U _writing ]
+"220
+[v _ICaddforwrite `uc ~T0 @X0 1 r1 ]
+[v _hadd `uc ~T0 @X0 1 r2 ]
+[v _hdata `uc ~T0 @X0 1 r3 ]
+[v _ldata `uc ~T0 @X0 1 r4 ]
+"221
+[f ]
+[; ;Radio.C: 222: IIC_Start();
+"222
+[e ( _IIC_Start ..  ]
+[; ;Radio.C: 223: IIC_Send_Byte(ICaddforwrite);
+"223
+[e ( _IIC_Send_Byte (1 _ICaddforwrite ]
+[; ;Radio.C: 224: IIC_Send_Byte(hadd);
+"224
+[e ( _IIC_Send_Byte (1 _hadd ]
+[; ;Radio.C: 225: IIC_Send_Byte(hdata);
+"225
+[e ( _IIC_Send_Byte (1 _hdata ]
+[; ;Radio.C: 226: IIC_Send_Byte(ldata);
+"226
+[e ( _IIC_Send_Byte (1 _ldata ]
+[; ;Radio.C: 227: IIC_Stop();
+"227
+[e ( _IIC_Stop ..  ]
+[; ;Radio.C: 228: DelayUs(5);
+"228
+[e ( _DelayUs (1 -> -> 5 `i `uc ]
+[; ;Radio.C: 229: }
+"229
+[e :UE 73 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"231
+[v _main `(v ~T0 @X0 1 ef ]
+"232
+{
+[; ;Radio.C: 231: void main()
+[; ;Radio.C: 232: {
 [e :U _main ]
 [f ]
-[; ;Radio.C: 31: }
-"31
-[e :UE 46 ]
+[; ;Radio.C: 233: (void)POWER_INITIAL();
+"233
+[e ( _POWER_INITIAL ..  ]
+[; ;Radio.C: 234: writing(0x90,23,0xa8,0XD0);
+"234
+[e ( _writing (4 , , , -> -> 144 `i `uc -> -> 23 `i `uc -> -> 168 `i `uc -> -> 208 `i `uc ]
+[; ;Radio.C: 235: while(1)
+"235
+[e :U 76 ]
+[; ;Radio.C: 236: {
+"236
+{
+"238
+}
+[e :U 75 ]
+"235
+[e $U 76  ]
+[e :U 77 ]
+[; ;Radio.C: 238: }
+[; ;Radio.C: 239: }
+"239
+[e :UE 74 ]
 }

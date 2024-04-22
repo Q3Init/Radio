@@ -575,14 +575,188 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 20 "Radio.C"
-void interrupt ISR(void)
+# 23 "Radio.C"
+int rxfreq[]={
+0x52BE,0xF850,0x0000};
+int txfreq[]={
+0x52C5,0x925F,0x0000};
+int rxreg[]={
+0x0300,
+0x8e04,
+0xF140,
+0xED00,
+0x17E0,
+0xe0e0,
+0x8543,
+0x0700,
+0xA066,
+0xFFFF,
+0xFFE0,
+0x07a0,
+0x9E3C,
+0x1F00,
+0xD1D1,
+0x200F,
+0x01FF,
+0xE000,
+0x0340
+};
+int txreg[]={
+0x7C00,
+0x0c04,
+0xF140,
+0xED00,
+0x3fE0,
+0xe0e0,
+0x8543,
+0x0700,
+0xA066,
+0xFFFF,
+0xffe0,
+0x061f,
+0x9e3c,
+0x1f00,
+0xd1C1,
+0x200f,
+0x01FF,
+0xE000,
+0x0c00
+};
+
+# 76
+void POWER_INITIAL (void)
 {
+OSCCON = 0B01110000;
+
+INTCON = 0;
+OPTION = 0B00001000;
+
+PORTA = 0B00000000;
+TRISA = 0B00000100;
+
+WPUA = 0B00000100;
+
+MSCKCON = 0B00000000;
 }
 
-# 28
-main()
+# 96
+void DelayUs(unsigned char Time)
+{
+unsigned char a;
+for(a=0;a<Time;a++)
+{
+__nop();
+}
+}
+
+# 110
+void DelayMs(unsigned char Time)
+{
+unsigned char a,b;
+for(a=0;a<Time;a++)
+{
+for(b=0;b<5;b++)
+{
+DelayUs(98);
+}
+}
+}
+
+# 127
+void IIC_Start(void)
+{
+TRISA2 =0;
+PA4=1;
+PA5=1;
+DelayUs(10);
+PA4=0;
+DelayUs(10);
+PA5=0;
+DelayUs(10);
+}
+
+# 144
+void IIC_Stop(void)
+{
+TRISA2 =0;
+PA5=0;
+PA4=0;
+DelayUs(10);
+PA5=1;
+DelayUs(10);
+PA4=1;
+DelayUs(10);
+}
+
+# 161
+void IIC_NAck(void)
+{
+PA5=0;
+TRISA2 =0;
+PA4=1;
+DelayUs(5);
+PA5=1;
+DelayUs(5);
+PA5=0;
+}
+
+# 177
+void IIC_Send_Byte(unsigned char txd)
+{
+unsigned char t;
+TRISA2 =0;
+PA5=0;
+for(t=0;t<8;t++)
+{
+if((txd&0x80)>>7)
+PA4=1;
+else
+PA4=0;
+txd<<=1;
+DelayUs(5);
+PA5=1;
+DelayUs(5);
+PA5=0;
+DelayUs(5);
+}
+}
+
+# 202
+unsigned char IIC_Read_Byte(void)
+{
+unsigned char i,receive=0;
+TRISA2 =1;
+for(i=0;i<8;i++ )
+{
+PA5=0;
+DelayUs(5);
+PA5=1;
+receive<<=1;
+if(PA4)receive++;
+DelayUs(5);
+}
+IIC_NAck();
+
+return receive;
+}
+
+void writing(char ICaddforwrite,char hadd,char hdata,char ldata)
+{
+IIC_Start();
+IIC_Send_Byte(ICaddforwrite);
+IIC_Send_Byte(hadd);
+IIC_Send_Byte(hdata);
+IIC_Send_Byte(ldata);
+IIC_Stop();
+DelayUs(5);
+}
+
+void main()
+{
+(void)POWER_INITIAL();
+writing(0x90,23,0xa8,0XD0);
+while(1)
 {
 
 }
-
+}
